@@ -1,0 +1,8 @@
+model_name: "vra_marlin_ft"
+backbone: "marlin_vit_base_ytf"
+dataset: "vra"
+task: "vra"
+temporal_reduction: "mean"
+learning_rate: 1.0e-4
+seq_mean_pool: true
+finetune: true

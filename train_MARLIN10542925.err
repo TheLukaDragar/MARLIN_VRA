@@ -1,0 +1,43 @@
+srun: warning: Multiple leaf switches contain nodes: gn[01-60]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+You are using a CUDA device ('NVIDIA A100-SXM4-40GB') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+2023-12-12 17:38:58.603920: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2023-12-12 17:38:58.603985: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2023-12-12 17:38:58.605214: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2023-12-12 17:38:58.612132: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-12-12 17:39:09.165605: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+/ceph/hpc/data/st2207-pgp-users/ldragar/pytorch_env/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:617: UserWarning: Checkpoint directory /ceph/hpc/data/st2207-pgp-users/ldragar/MARLIN/ckpt/vra_marlin_ft exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name    | Type          | Params
+------------------------------------------
+0 | model   | MarlinEncoder | 87.4 M
+1 | fc      | Linear        | 769   
+2 | loss_fn | MSELoss       | 0     
+------------------------------------------
+86.2 M    Trainable params
+1.2 M     Non-trainable params
+87.4 M    Total params
+349.729   Total estimated model params size (MB)
+SLURM auto-requeueing enabled. Setting signal handlers.
+/ceph/hpc/data/st2207-pgp-users/ldragar/pytorch_env/lib/python3.10/site-packages/torch/utils/data/dataloader.py:557: UserWarning: This DataLoader will create 4 worker processes in total. Our suggested max number of worker in current system is 2, which is smaller than what this DataLoader is going to create. Please be aware that excessive worker creation might get DataLoader running slow or even freeze, lower the worker number to avoid potential slowness/freeze if necessary.
+  warnings.warn(_create_warning_msg(
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+  0%|          | 0/88 [00:00<?, ?it/s]  1%|          | 1/88 [00:01<02:51,  1.97s/it]  6%|▌         | 5/88 [00:03<00:46,  1.80it/s] 10%|█         | 9/88 [00:03<00:24,  3.23it/s] 11%|█▏        | 10/88 [00:03<00:23,  3.25it/s] 15%|█▍        | 13/88 [00:04<00:17,  4.26it/s] 16%|█▌        | 14/88 [00:04<00:17,  4.16it/s] 19%|█▉        | 17/88 [00:04<00:13,  5.30it/s] 20%|██        | 18/88 [00:05<00:15,  4.50it/s] 25%|██▌       | 22/88 [00:05<00:12,  5.18it/s] 28%|██▊       | 25/88 [00:06<00:09,  6.97it/s] 31%|███       | 27/88 [00:06<00:10,  5.69it/s] 33%|███▎      | 29/88 [00:06<00:08,  6.56it/s] 34%|███▍      | 30/88 [00:07<00:13,  4.27it/s] 38%|███▊      | 33/88 [00:07<00:08,  6.18it/s] 40%|███▉      | 35/88 [00:08<00:09,  5.43it/s] 43%|████▎     | 38/88 [00:08<00:09,  5.15it/s] 47%|████▋     | 41/88 [00:08<00:06,  7.02it/s] 49%|████▉     | 43/88 [00:09<00:07,  6.14it/s] 51%|█████     | 45/88 [00:09<00:06,  7.01it/s] 53%|█████▎    | 47/88 [00:10<00:06,  5.88it/s] 56%|█████▌    | 49/88 [00:10<00:05,  6.81it/s] 57%|█████▋    | 50/88 [00:10<00:07,  4.88it/s] 60%|██████    | 53/88 [00:10<00:05,  6.91it/s] 61%|██████▏   | 54/88 [00:11<00:06,  5.21it/s] 65%|██████▍   | 57/88 [00:11<00:04,  6.69it/s] 66%|██████▌   | 58/88 [00:11<00:05,  5.23it/s] 69%|██████▉   | 61/88 [00:12<00:04,  6.51it/s] 70%|███████   | 62/88 [00:12<00:04,  5.31it/s] 74%|███████▍  | 65/88 [00:12<00:03,  6.58it/s] 75%|███████▌  | 66/88 [00:13<00:03,  5.77it/s] 78%|███████▊  | 69/88 [00:13<00:02,  6.82it/s] 80%|███████▉  | 70/88 [00:13<00:03,  5.34it/s] 83%|████████▎ | 73/88 [00:14<00:01,  7.70it/s] 85%|████████▌ | 75/88 [00:14<00:01,  6.67it/s] 88%|████████▊ | 77/88 [00:14<00:01,  6.41it/s] 89%|████████▊ | 78/88 [00:15<00:01,  6.34it/s] 91%|█████████ | 80/88 [00:15<00:01,  7.93it/s] 93%|█████████▎| 82/88 [00:15<00:01,  4.99it/s] 97%|█████████▋| 85/88 [00:16<00:00,  6.63it/s] 98%|█████████▊| 86/88 [00:16<00:00,  6.14it/s]100%|██████████| 88/88 [00:16<00:00,  5.34it/s]
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+SLURM auto-requeueing enabled. Setting signal handlers.
+  0%|          | 0/88 [00:00<?, ?it/s]  1%|          | 1/88 [00:02<03:17,  2.27s/it]  6%|▌         | 5/88 [00:03<00:41,  1.98it/s] 10%|█         | 9/88 [00:03<00:24,  3.18it/s] 14%|█▎        | 12/88 [00:03<00:16,  4.57it/s] 15%|█▍        | 13/88 [00:04<00:18,  3.96it/s] 18%|█▊        | 16/88 [00:04<00:13,  5.50it/s] 19%|█▉        | 17/88 [00:04<00:13,  5.09it/s] 20%|██        | 18/88 [00:05<00:14,  4.97it/s] 23%|██▎       | 20/88 [00:05<00:11,  6.08it/s] 24%|██▍       | 21/88 [00:05<00:12,  5.46it/s] 27%|██▋       | 24/88 [00:05<00:09,  6.46it/s] 28%|██▊       | 25/88 [00:06<00:10,  5.98it/s] 30%|██▉       | 26/88 [00:06<00:10,  6.16it/s] 32%|███▏      | 28/88 [00:06<00:07,  7.68it/s] 33%|███▎      | 29/88 [00:06<00:10,  5.57it/s] 34%|███▍      | 30/88 [00:06<00:10,  5.77it/s] 38%|███▊      | 33/88 [00:07<00:10,  5.25it/s] 42%|████▏     | 37/88 [00:07<00:07,  6.56it/s] 45%|████▌     | 40/88 [00:08<00:06,  7.47it/s] 47%|████▋     | 41/88 [00:08<00:07,  6.22it/s] 50%|█████     | 44/88 [00:08<00:06,  7.02it/s] 51%|█████     | 45/88 [00:09<00:07,  6.13it/s] 53%|█████▎    | 47/88 [00:09<00:05,  7.15it/s] 55%|█████▍    | 48/88 [00:09<00:05,  6.99it/s] 56%|█████▌    | 49/88 [00:09<00:05,  6.61it/s] 57%|█████▋    | 50/88 [00:09<00:05,  6.95it/s] 58%|█████▊    | 51/88 [00:10<00:06,  5.34it/s] 60%|██████    | 53/88 [00:10<00:04,  7.01it/s] 61%|██████▏   | 54/88 [00:10<00:06,  5.11it/s] 65%|██████▍   | 57/88 [00:10<00:04,  6.48it/s] 66%|██████▌   | 58/88 [00:11<00:05,  5.69it/s] 69%|██████▉   | 61/88 [00:11<00:04,  6.08it/s] 72%|███████▏  | 63/88 [00:11<00:03,  7.55it/s] 74%|███████▍  | 65/88 [00:12<00:04,  5.51it/s] 77%|███████▋  | 68/88 [00:12<00:02,  7.48it/s] 80%|███████▉  | 70/88 [00:13<00:03,  5.88it/s] 83%|████████▎ | 73/88 [00:13<00:02,  5.83it/s] 84%|████████▍ | 74/88 [00:13<00:02,  6.14it/s] 88%|████████▊ | 77/88 [00:14<00:01,  6.47it/s] 89%|████████▊ | 78/88 [00:14<00:01,  5.48it/s] 92%|█████████▏| 81/88 [00:14<00:00,  7.76it/s] 94%|█████████▍| 83/88 [00:15<00:00,  6.68it/s] 97%|█████████▋| 85/88 [00:15<00:00,  6.63it/s] 98%|█████████▊| 86/88 [00:15<00:00,  6.75it/s]100%|██████████| 88/88 [00:15<00:00,  5.61it/s]

@@ -30,6 +30,9 @@ scene = 'non-mask'
 model_category = 'face_detection'
 model_name = model_conf[scene][model_category]
 
+#module load   FFmpeg/4.4.2-GCCcore-11.3.0
+sys.path.append("/cvmfs/sling.si/modules/el7/software/FFmpeg/4.4.2-GCCcore-11.3.0/bin/ffmpeg")
+
 logger.info('Start to load the face detection model...')
 # load model
 sys.path.append(os.path.join("util", "face_sdk"))
@@ -93,6 +96,35 @@ def process_videos(video_path, output_path, ext="mp4", max_workers=8):
         for f_name in tqdm(files):
             if f_name.endswith('.' + ext):
                 source_path = os.path.join(video_path, f_name)
+                target_path = os.path.join(output_path, f_name)
+                print(source_path)
+                print(target_path)
+                fps = eval(ffmpeg.probe(source_path)["streams"][0]["avg_frame_rate"])
+                futures.append(executor.submit(crop_face_video, source_path, target_path, fourcc,
+                    fps))
+
+        for future in tqdm(futures):
+            future.result()
+
+
+def process_videos_VRA(subset_path, output_path, ext="mp4", max_workers=8):
+    if ext == "mp4":
+        fourcc = cv2.VideoWriter_fourcc(*"mp4v")
+    elif ext == "avi":
+        fourcc = cv2.VideoWriter_fourcc(*"XVID")
+    else:
+        raise ValueError("ext should be mp4 or avi")
+
+    Path(output_path).mkdir(parents=True, exist_ok=True)
+
+    files = os.listdir(subset_path)
+
+    with ProcessPoolExecutor(max_workers=max_workers) as executor:
+        futures = []
+
+        for f_name in tqdm(files):
+            if f_name.endswith('.' + ext):
+                source_path = os.path.join(subset_path, f_name)
                 target_path = os.path.join(output_path, f_name)
                 fps = eval(ffmpeg.probe(source_path)["streams"][0]["avg_frame_rate"])
                 futures.append(executor.submit(crop_face_video, source_path, target_path, fourcc,

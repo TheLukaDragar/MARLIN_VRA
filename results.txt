@@ -1,0 +1,1 @@
+{'mse': 0.5712655782699585, 'mae': 0.6051816344261169, 'plcc': PearsonRResult(statistic=0.40693296941934565, pvalue=2.6785556897091844e-29), 'srcc': SignificanceResult(statistic=0.4071049809556471, pvalue=2.525125031597357e-29)}

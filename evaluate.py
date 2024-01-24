@@ -66,7 +66,7 @@ def train_celebvhq(args, config):
         dm.setup()
         return resume_ckpt, dm
 
-    strategy = None if n_gpus <= 1 else "ddp"
+    strategy = "auto" if n_gpus <= 1 else "ddp"
     accelerator = "cpu" if n_gpus == 0 else "gpu"
 
     ckpt_filename = config["model_name"] + "-{epoch}-{val_auc:.3f}"
